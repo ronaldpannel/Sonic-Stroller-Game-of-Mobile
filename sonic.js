@@ -11,8 +11,8 @@ class Sonic {
     this.acc = 0;
     this.gravity = 0;
     this.isGrounded = false;
-    this.isHitting = false
-    this.isHittingCoin = false
+    this.isHitting = false;
+    this.isHittingCoin = false;
     this.image = document.getElementById("sonicImg");
     this.spriteWidth = 32;
     this.spriteHeight = 44;
@@ -75,10 +75,10 @@ class Sonic {
   }
 
   jump() {
-    this.vel += -5;
+    this.vel += -10;
     this.gravity = 0.2;
-    jumpSound.currentTime = 0
+    jumpSound.currentTime = 0;
     jumpSound.volume = 0.1;
-    jumpSound.play()
+    jumpSound.play();
   }
 }

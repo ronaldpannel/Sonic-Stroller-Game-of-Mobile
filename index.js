@@ -59,11 +59,11 @@ window.addEventListener("load", () => {
       this.startBtn.addEventListener("click", () => {
         location.reload();
       });
-      window.addEventListener("mousedown", () => {
-        if (this.sonic.isGrounded) {
-          this.sonic.jump();
-        }
-      });
+      // window.addEventListener("mousedown", () => {
+      //   if (this.sonic.isGrounded) {
+      //     this.sonic.jump();
+      //   }
+      // });
 
       window.addEventListener("resize", (e) => {
         let width = e.currentTarget.innerWidth;
@@ -221,7 +221,7 @@ window.addEventListener("load", () => {
           ) {
             this.sonic.jump();
             this.sonic.jump();
-            this.sonic.jump();
+
             this.score += 10;
             this.sonic.isHitting = true;
             destroySound.currentTime = 0;
