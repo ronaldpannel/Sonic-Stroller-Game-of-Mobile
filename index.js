@@ -46,6 +46,7 @@ window.addEventListener("load", () => {
           this.sonic.jump();
         }
       });
+      window.addEventListener("touchend", () => {});
       this.resetBtn.addEventListener("click", () => {
         location.reload();
         localStorage.setItem("sonicHighScore", 0);
