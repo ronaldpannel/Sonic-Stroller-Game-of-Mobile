@@ -41,12 +41,7 @@ window.addEventListener("load", () => {
         }
       });
 
-      window.addEventListener("keydown", (e) => {
-        if (e.key === "ArrowUp" && this.sonic.isGrounded) {
-          this.sonic.jump();
-        }
-      });
-      this.jumpBtn.addEventListener("click", () => {
+      window.addEventListener("touchstart", () => {
         if (this.sonic.isGrounded) {
           this.sonic.jump();
         }
@@ -59,11 +54,6 @@ window.addEventListener("load", () => {
       this.startBtn.addEventListener("click", () => {
         location.reload();
       });
-      // window.addEventListener("mousedown", () => {
-      //   if (this.sonic.isGrounded) {
-      //     this.sonic.jump();
-      //   }
-      // });
 
       window.addEventListener("resize", (e) => {
         let width = e.currentTarget.innerWidth;
