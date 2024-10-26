@@ -29,7 +29,7 @@ window.addEventListener("load", () => {
       this.gameOver = false;
       this.startBtn = document.getElementById("startBtn");
       this.resetBtn = document.getElementById("resetBtn");
-      this.jumpBtn = document.getElementById("jumpBtn");
+     
 
       this.bg = new Bg(this, cityBg, 1, 60);
       this.bg1 = new Bg(this, platformImg, 1.5, 0);
@@ -41,18 +41,22 @@ window.addEventListener("load", () => {
         }
       });
 
-      window.addEventListener("touchstart", () => {
+      window.addEventListener("touchstart", (e) => {
+         e.preventDefault();
         if (this.sonic.isGrounded) {
           this.sonic.jump();
         }
       });
-      window.addEventListener("touchend", () => {});
-      this.resetBtn.addEventListener("click", () => {
+      window.addEventListener("touchend", (e) => {
+         e.preventDefault();
+         this.sonic.isGrounded = false
+      });
+      this.resetBtn.addEventListener("touchstart", () => {
         location.reload();
         localStorage.setItem("sonicHighScore", 0);
       });
 
-      this.startBtn.addEventListener("click", () => {
+      this.startBtn.addEventListener("touchstart", () => {
         location.reload();
       });
 
