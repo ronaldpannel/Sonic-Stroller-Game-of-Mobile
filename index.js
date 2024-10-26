@@ -29,7 +29,6 @@ window.addEventListener("load", () => {
       this.gameOver = false;
       this.startBtn = document.getElementById("startBtn");
       this.resetBtn = document.getElementById("resetBtn");
-     
 
       this.bg = new Bg(this, cityBg, 1, 60);
       this.bg1 = new Bg(this, platformImg, 1.5, 0);
@@ -42,14 +41,14 @@ window.addEventListener("load", () => {
       });
 
       window.addEventListener("touchstart", (e) => {
-         e.preventDefault();
+        e.preventDefault();
         if (this.sonic.isGrounded) {
           this.sonic.jump();
         }
       });
       window.addEventListener("touchend", (e) => {
-         e.preventDefault();
-         this.sonic.isGrounded = false
+        e.preventDefault();
+        this.sonic.isGrounded = false;
       });
       this.resetBtn.addEventListener("touchstart", () => {
         location.reload();
@@ -73,7 +72,7 @@ window.addEventListener("load", () => {
       this.width = width;
       this.height = height;
       setInterval(() => {
-        this.gameSpeed += 0.2;
+        this.gameSpeed += 0.4;
       }, 4000);
     }
     createMotoBots() {
@@ -107,11 +106,7 @@ window.addEventListener("load", () => {
       ctx.textAlign = "center";
       ctx.fillText(`SCORE:-  ${this.score}`, 100, 50);
 
-      ctx.fillText(
-        "Touch Jump Button To Make Sonic Jump",
-        this.width * 0.5,
-        50
-      );
+      ctx.fillText("Touch Screen To Make Sonic Jump", this.width * 0.5, 50);
       ctx.fillText(`HIGH SCORE:- ${this.highestScore}`, 1280, 50);
       if (this.gameOver) {
         ctx.font = "60px Aerial";
