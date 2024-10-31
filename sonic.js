@@ -17,7 +17,7 @@ class Sonic {
     this.spriteWidth = 32;
     this.spriteHeight = 44;
     this.frameRate = 0;
-    this.maxFrames = 8;
+    this.maxFrames = 7;
     this.frameX = 0;
     this.frameY = 0;
     this.fps = 60 * this.game.gameSpeed;
