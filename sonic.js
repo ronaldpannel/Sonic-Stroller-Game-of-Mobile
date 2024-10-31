@@ -20,6 +20,9 @@ class Sonic {
     this.maxFrames = 8;
     this.frameX = 0;
     this.frameY = 0;
+    this.fps = 60 * this.game.gameSpeed;
+    this.frameInterval = 1000 / this.fps;
+    this.frameTimer = 0;
   }
   draw(ctx) {
     ctx.drawImage(
@@ -41,7 +44,7 @@ class Sonic {
       ctx.stroke();
     }
   }
-  update() {
+  update(deltaTime) {
     if (this.y + this.height >= 345) {
       this.isGrounded = true;
     } else {
@@ -59,14 +62,17 @@ class Sonic {
     this.width = this.game.height * this.scaler;
     this.height = this.game.height * this.scaler;
 
-    this.frameRate++;
-    this.frameX++;
-
-    if (this.frameRate % 1 == 0) {
-      if (this.frameX >= this.maxFrames) {
+    if (this.frameTimer > this.frameInterval) {
+      this.frameTimer = 0;
+      if (this.frameX < this.maxFrames) {
+        this.frameX++;
+      } else {
         this.frameX = 0;
       }
+    } else {
+      this.frameTimer += deltaTime;
     }
+
     if (this.isGrounded) {
       this.frameY = 0;
     } else {
